@@ -6,6 +6,8 @@ contract MyContract{
 
     Person [] public people;
 
+    uint256 public peopleCount = 0;
+
     struct Person{
 
       string _firstName;
@@ -17,7 +19,8 @@ contract MyContract{
     function addPerson (string memory _firstName,
       string memory _lastName) public  {
 
-       peopleo.push(Person(_firstName,_lastName));
+       people.push(Person(_firstName,_lastName));
+       peopleCount += 1;
     }
 
 }
