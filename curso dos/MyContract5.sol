@@ -9,10 +9,7 @@ contract MyContract{
 
     uint256 openingTime=1623780327;
 
-
-    //address owner;
-
-    modifier onlyOwner(){
+    modifier onlyWhileOpen(){
       require(block.timestamp >= openingTime);
       _;
     }
@@ -27,16 +24,15 @@ contract MyContract{
 
 
 
-    function addPerson (string memory _firstName,
-      string memory _lastName) public onlyOwner {
-    }
+    function addPerson (string memory _firstName, string memory _lastName)
+
 
     public
     onlyWhileOpen
 
     {
 
-    incrementCount (peopleCount);
+    incrementCount ();
     people[peopleCount] = Person(peopleCount, _firstName, _lastName);
 
     }
@@ -44,3 +40,6 @@ contract MyContract{
     function incrementCount () internal{
       peopleCount += 1;
     }
+
+
+}
