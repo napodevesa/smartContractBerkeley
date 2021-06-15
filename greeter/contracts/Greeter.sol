@@ -1,16 +1,14 @@
+pragma solidity ^0.5.16;
 
-pragma solidity^0.5.0;
+contract Greeter {
 
-contract Contract {
-    string public greeting;
+  string public greeting;
 
-    function Greeter (string memory _greeting) public {
-        greeting = _greeting;
-    }
+function greeter (string memory _greeting) public{
+    greeting = _greeting;
+}
 
-    function setName(string memory newName) public {
-        greeting = newName;
-
-    }
-
+function greet(string memory newGreeting) public{
+greeting = newGreeting;
+}
 }
