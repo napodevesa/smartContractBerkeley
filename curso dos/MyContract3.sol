@@ -4,10 +4,10 @@ pragma solidity ^0.5.1;
 
 contract MyContract{
 
-    Person [] public people;
+
 
     uint256 public peopleCount = 0;
-    mapping (uint => Person)public people;
+    mapping (uint => Person) public people;
 
     struct Person{
       uint _id;
@@ -21,8 +21,8 @@ contract MyContract{
     function addPerson (string memory _firstName,
       string memory _lastName) public  {
         peopleCount += 1;
-        people[peopleCount]= Person(peopleCount, _firstName, _lastName)
-       people.push(Person(_firstName,_lastName));
+        people[peopleCount] = Person(peopleCount, _firstName, _lastName);
+
 
     }
 
