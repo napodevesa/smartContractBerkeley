@@ -2,38 +2,45 @@ pragma solidity 0.5.1;
 
 contract ERC20Token {
   string public name;
-  mapping (address => uint256) public balances;
+  mapping (address => uint256)public balances;
 
-  function mint() public {
+
+constructor (string memory _name)public
+{
+  name = _name;
+}
+
+  function mint()public
+  {
   balances [tx.origin] ++;
-
   }
 
 }
 
-contract MyContract{
-  address payable wallet;
-  address token;
+contract MyToken is ERC20Token
+{
+  string public symbol;
+  adress[] public owners;
+  uint256 ownerCount;
 
-
-  constructor (address payable _wallet, address _token) public
+  constructor
+  (
+    string memory _name,
+    string memory _symbol
+  )
+  ERC20Token(_name)public
   {
-    wallet = _wallet;
-    token = _token;
+    symbol = _symbol;
   }
+}
 
+function mint() public
+{
+  super.mint();
+  ownerCount ++;
+  owners.push(msg.sender);
 
-  function () external payable
-  {
-    buyToken();
-  }
-
-  function buyToken() public payable
-  {
-    ERC20Token _token = ERC20Token(address(token));
-    _token.mint();
-    wallet.transfer(msg.value);
-  }
+}
 
 
 }
